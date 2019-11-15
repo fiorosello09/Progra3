@@ -24,7 +24,7 @@ public class Task
     public Task(){
     }
     
-    public Task(String ptipotarea, int pTaskNumber,String pdescripccion,String pNacionalidad,String pId,String pesfuerzo,String pEncargado,int pDuration)
+    public Task(String ptipotarea, int pTaskNumber,String pdescripccion,String pNacionalidad,String pId,String pesfuerzo,String pEncargado)//int pDuration)
     {
         this.tipotarea = ptipotarea;
         this.taskNumber = pTaskNumber;
@@ -32,7 +32,7 @@ public class Task
         this.Id = pId;
         this.esfuerzo1 = pesfuerzo;
         this.encargado1 = pEncargado;
-        this.duration = pDuration;
+       // this.duration = pDuration;
         this.adjacencyList = new LinkedList();
     }
 
