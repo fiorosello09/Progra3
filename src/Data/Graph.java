@@ -12,7 +12,12 @@ package Data;
  */
 public class Graph<T> {
 
-    private Edge<T> head;
+    //atributes
+    
+    /**
+     *
+     */
+    public Edge<T> head;
     private Edge<T> current;
     private Edge<T> tail;
 
@@ -25,10 +30,10 @@ public class Graph<T> {
     /**
      *
      */
-    public int amount = 0;
+    public int amount;
 
-    /**
-     *
+    /** constructor by default
+     * create a graph with a null edge
      */
     public Graph() {
         this.head = new Edge();
@@ -37,31 +42,23 @@ public class Graph<T> {
         this.amount = 0;
     }
 
+    /** adds edge to graph
+     * no return 
+     * @param element T
+     */
     public void addEdge(T element) {
         //always insert at the end of the list
         Edge object = new Edge(element);
         this.tail.setNext(object);
         this.tail = object;
-        this.amount++;
+        this.amount = amount+1;
     }
 
-    //insert a element in at the end of the list
-    /**
+    /** finds task in graph
      *
-     * @param element
-     * @param element2
+     * @param task in
+     * @return Task
      */
-    public void addEdge(T element, int element2) {
-        //always insert at the end of the list
-        Edge<Task> object = new Edge(element);
-        this.tail.setNext(object);
-        this.tail = (Edge<T>) object;
-        Task toInsert = findEdge(element2);
-        LinkedList list = toInsert.getAdjacencyList();
-        list.insert(element);
-        this.amount++;
-    }
-
     public Task findEdge(int task) {
         if (amount == 0) {
             return null;
@@ -82,6 +79,10 @@ public class Graph<T> {
         return null;
     }
 
+    /** gets the actual element
+     *
+     * @return T 
+     */
     public T getElement() {
         return this.current.getTask();
     }
@@ -90,7 +91,7 @@ public class Graph<T> {
      *
      * @param list
      * @param task2
-     * @return
+     * @return Task 
      */
     public Task findEquals(LinkedList list, int task2) {
         if (list.amount == 0) 
@@ -113,62 +114,9 @@ public class Graph<T> {
         }
         return null;
     }
-    
-    public Task findShortest(LinkedList list)
-    {   NodeLinkedList<Task> actual = list.head;
-        NodeLinkedList<Task> temp = list.head;
-        Task shortest = actual.getElement();
-        while(temp!=null)
-        {
-            int duration = temp.getElement().getDuration();
-            if(shortest.getDuration()>duration)
-            {
-                shortest = temp.getElement();
-            }
-            temp = temp.getNext();
-        }
-        return shortest;
-    }
-    
-    public String[] findShortestPath(int task1, int task2)
-    {
-        int position = 0;
-        shortest = new String[amount];
-        Task task = findEdge(task1);
-        shortest[position]= task.getTipotarea();
-        LinkedList list = task.getAdjacencyList();
-        Task found = findEquals(list,task2);
-        if(found!=null)
-        {
-            position = position+1;
-            shortest[position] = found.getTipotarea();
-        }
-        else{
-            
-            Task other = findShortest(list);
-            position = position+1;
-           // System.out.println("Shortest path"+other.getTipotarea());
-            shortest[position] = other.getTipotarea();
-            
-            
-            
-            //shortest.addEdge(another);
-        }
-        
-        
-
-        return shortest;
-    }
-     
-    
-    public void shortest ()
-    {
-        int position = 0;
-        while(position!=amount)
-        {
-            System.out.println("Shortest path is: ");
-            System.out.println(shortest[position]);
-            position = position+1;
-        }
-    }
 }
+    
+    
+
+    
+

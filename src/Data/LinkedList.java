@@ -74,7 +74,7 @@ public class LinkedList<L>
     
     /** gets the element of the type to find
      *
-     * @return
+     * @return L
      */
     public L getElement()
     {
@@ -90,7 +90,7 @@ public class LinkedList<L>
     /** finds the object in linkedlist
      *
      * @param name
-     * @return null
+     * @return null or L
      */
         
     public L find(L name)
@@ -119,7 +119,7 @@ public class LinkedList<L>
     
     
     /** inserts the object in linked list
-     *
+     * no return 
      * @param element
      */
         public void insert(L element)
@@ -156,7 +156,7 @@ public class LinkedList<L>
     
 
     /** deletes an element from linked list
-     *
+     * no return
      * @param element
      */
         public void delete(L element)
@@ -188,8 +188,20 @@ public class LinkedList<L>
         //System.out.println("No se encontro el elemento por eliminar");
            
     }
+      
+    /** inserts at the end of the list
+     * no return 
+     * @param element
+     */
+    public void append(L element)
+        {
+            NodeLinkedList<L> object =  new NodeLinkedList<>(element);
+        this.tail.setNext(object);
+        this.tail = object;
+        this.amount = amount+1;
+        }
 
-    /**
+    /** no return
      * clears the linked list
      */
     public void clear()
@@ -202,7 +214,7 @@ public class LinkedList<L>
 
     /** prints the elements of the linked list
      *
-     * @return
+     * @return lista 
      */
         public String toString()
     {

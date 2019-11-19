@@ -15,9 +15,9 @@ public class NodeLinkedList<T> {
     private T element;
     private NodeLinkedList next;
 
-    //Constructores
+    //Constructors
 
-    /**
+    /** constructor by default
      *
      */
     public NodeLinkedList() {
@@ -25,54 +25,54 @@ public class NodeLinkedList<T> {
         this.next = null;
     }
 
-    /**
-     *
-     * @param element
+    /** creates a Node that contains the element T
+     * no return 
+     * @param element T
      */
     public NodeLinkedList(T element) {
         this.element = element;
         this.next = null;
     }
 
-    /**
-     *
-     * @param element
-     * @param next
+    /** creates a Node that contains a T element and sets its next with 
+     *  an another Node
+     * @param element T
+     * @param next NodeLinkedList
      */
     public NodeLinkedList(T element, NodeLinkedList next) {
         this.element = element;
         this.next = next;
     }
 
-    //m�todos
+    //methods
 
-    /**
+    /**  gets the actual element
      *
-     * @return
+     * @return T element
      */
     public T getElement() {
         return this.element;
     }
 
-    /**
-     *
-     * @param element
+    /** sets the actual element
+     *  no return 
+     * @param element T
      */
     public void setElement(T element) {
         this.element = element;
     }
 
-    /**
+    /** gets the next of the actual element
      *
-     * @return
+     * @return this.next NodeLinkedList
      */
     public NodeLinkedList getNext() {
         return this.next;
     }
 
-    /**
-     *
-     * @param next
+    /** sets the next of the actual element
+     * no return 
+     * @param next NodeLinkedList
      */
     public void setNext(NodeLinkedList next) {
         this.next = next;

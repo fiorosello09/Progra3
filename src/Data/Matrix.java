@@ -13,6 +13,8 @@ package Data;
  */
 public class Matrix 
 {
+    //atributes
+    
     static final int NO_PARENT = -1;	
     private final int numOfNodes;
     private final boolean directed;
@@ -22,6 +24,10 @@ public class Matrix
     static LinkedList<Task>  edges = new LinkedList(); //nodes in the shortest path
     static LinkedList<Integer> dists = new LinkedList<Integer>(); //l
     
+    /** creates a matrix based on the number enter
+     *
+     * @param numOfNodes
+     */
     public Matrix(int numOfNodes) {
 
         this.directed = false;
@@ -33,6 +39,12 @@ public class Matrix
         isSetMatrix = new boolean[numOfNodes][numOfNodes];
     }
     
+    /** add edge with source, destination and weight 
+     *
+     * @param source int
+     * @param destination int
+     * @param weight float
+     */
     public void addEdge(int source, int destination, float weight) {
 
         float valueToAdd = weight;
@@ -49,11 +61,19 @@ public class Matrix
             isSetMatrix[destination][source] = true;
         }
     }
-     public boolean hasEdge(int source, int destination) {
+
+    /** looks if the source and destination have and edge
+     *
+     * @param source
+     * @param destination
+     * @return true o false
+     */
+    public boolean hasEdge(int source, int destination) {
     return isSetMatrix[source][destination];
 }
 
-    /**
+    /** prints the matrix 
+     * no return
      *
      */
     public void printMatrix() {
@@ -70,6 +90,13 @@ public class Matrix
         }
 
     }
+
+    /** finds the shortest path between two points
+     * no return 
+     * @param graph Graph
+     * @param src int
+     * @param dest int
+     */
     public void shortestPath(Graph graph, int src, int dest) 
     {   edges.clear();
         dest = dest-1;
@@ -109,6 +136,13 @@ public class Matrix
         dists.insert(shortest[dest]);
         visitUtil(graph,dest, parents); 
     } 
+
+    /**
+     *
+     * @param graph
+     * @param i
+     * @param parents
+     */
     public static void visitUtil(Graph graph,int i,int[] parents)  { 	
         if (i == NO_PARENT)        	
             return; 
@@ -119,114 +153,36 @@ public class Matrix
         
         edges.insert(toInsert);
     } 
-    public String path()
+
+    /**
+     *
+     * @return edges LinkedList
+     */
+    public LinkedList path()
     {
-        NodeLinkedList<Task>  temp = edges.head;
-        //System.out.println(edges.amount);
-        String path = "";
-        while(temp!=null)
-        {
-            String toInsert = temp.getElement().getTipotarea();
-            path+=toInsert+", ";
-            temp = temp.getNext();
-        }
-        return path;
+        
+        return edges;
         
     }
-    /*
     
-    int minDistance(int dist[], bool sptSet[])
-{
-    // Initialize min value
-    int min = INT_MAX, min_index;
- 
-    for (int v = 0; v < V; v++)
-        if (sptSet[v] == false && dist[v] <= min)
-            min = dist[v], min_index = v;
- 
-    return min_index;
-}
- 
-// Function to print shortest path from source to j
-// using parent array
-void printPath(int parent[], int j)
-{
-    // Base Case : If j is source
-    if (parent[j]==-1)
-        return;
- 
-    printPath(parent, parent[j]);
- 
-    printf("%d ", j);
-}
- 
-// A utility function to print the constructed distance
-// array
-int printSolution(int dist[], int n, int parent[])
-{
-    int src = 0;
-    printf("Vertex\t  Distance\tPath");
-    for (int i = 1; i < V; i++)
+    /** prints each data in edges 
+     *
+     * @return tasks String
+     */
+    public String printEdges()
     {
-        printf("\n%d -> %d \t\t %d\t\t%d ", src, i, dist[i], src);
-        printPath(parent, i);
+        String tasks ="";
+        NodeLinkedList<Task> temp = edges.head;//.getNext();
+        while(temp!=null)
+        {
+            int task = temp.getElement().getTaskNumber();
+            tasks +=task;
+            tasks+="";
+            temp =  temp.getNext();
+        }
+        return tasks;
     }
-}
- 
-// Funtion that implements Dijkstra's single source shortest path
-// algorithm for a graph represented using adjacency matrix
-// representation
-    public void dijkstra(int graph[V][V], int src)
-{
-    int dist[V];  // The output array. dist[i] will hold
-                  // the shortest distance from src to i
- 
-    // sptSet[i] will true if vertex i is included / in shortest
-    // path tree or shortest distance from src to i is finalized
-    bool sptSet[V];
- 
-    // Parent array to store shortest path tree
-    int parent[V];
- 
-    // Initialize all distances as INFINITE and stpSet[] as false
-    for (int i = 0; i < V; i++)
-    {
-        parent[0] = -1;
-        dist[i] = INT_MAX;
-        sptSet[i] = false;
-    }
- 
-    // Distance of source vertex from itself is always 0
-    dist[src] = 0;
- 
-    // Find shortest path for all vertices
-    for (int count = 0; count < V-1; count++)
-    {
-        // Pick the minimum distance vertex from the set of
-        // vertices not yet processed. u is always equal to src
-        // in first iteration.
-        int u = minDistance(dist, sptSet);
- 
-        // Mark the picked vertex as processed
-        sptSet[u] = true;
- 
-        // Update dist value of the adjacent vertices of the
-        // picked vertex.
-        for (int v = 0; v < V; v++)
- 
-            // Update dist[v] only if is not in sptSet, there is
-            // an edge from u to v, and total weight of path from
-            // src to v through u is smaller than current value of
-            // dist[v]
-            if (!sptSet[v] && graph[u][v] &&
-                dist[u] + graph[u][v] < dist[v])
-            {
-                parent[v]  = u;
-                dist[v] = dist[u] + graph[u][v];
-            }  
-    }
- 
-    // print the constructed distance array
-    printSolution(dist, V, parent);
-}*/
+    
+    
+    
 }

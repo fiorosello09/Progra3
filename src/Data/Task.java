@@ -11,100 +11,172 @@ package Data;
  */
 public class Task 
 {
+    //atributes
+    
     private LinkedList adjacencyList;
-    private String tipotarea;
+    private String tasktype;
     private int taskNumber;
-    private String descripccion;
+    private String description;
     private String Id;
-    private String esfuerzo1;
-    private String encargado1;
+    private String effort;
+    private String manager;
     private int duration;
     
-    
+    /**
+     * constructor by default
+     */
     public Task(){
     }
     
-    public Task(String ptipotarea, int pTaskNumber,String pdescripccion,String pNacionalidad,String pId,String pesfuerzo,String pEncargado)//int pDuration)
+    /** constructor 
+     *
+     * @param pTasktype
+     * @param pTaskNumber
+     * @param pdescription
+     * @param pId
+     * @param pEffort
+     * @param pManager
+     */
+    public Task(String pTasktype, int pTaskNumber,String pdescription,String pId,String pEffort,String pManager)//int pDuration)
     {
-        this.tipotarea = ptipotarea;
+        this.tasktype = pTasktype;
         this.taskNumber = pTaskNumber;
-        this.descripccion = pdescripccion;
+        this.description = pdescription;
         this.Id = pId;
-        this.esfuerzo1 = pesfuerzo;
-        this.encargado1 = pEncargado;
-       // this.duration = pDuration;
+        this.effort = pEffort;
+        this.manager = pManager;
+        this.duration = 0;
         this.adjacencyList = new LinkedList();
     }
 
-    public String getTipotarea() {
-        return tipotarea;
-    }
-
-    public void setTipotarea(String tipotarea) {
-        this.tipotarea = tipotarea;
-    }
-
-    public int getTaskNumber() {
-        return taskNumber;
-    }
-
-    public void setTaskNumer(int pTaskNumber) {
-        this.taskNumber = pTaskNumber;
-    }
-
-    public String getDescripccion() {
-        return descripccion;
-    }
-
-    public void setDescripccion(String descripccion) {
-        this.descripccion = descripccion;
-    }
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String Id) {
-        this.Id = Id;
-    }
-
-    public String getEsfuerzo1() {
-        return esfuerzo1;
-    }
-
-    public void setEsfuerzo1(String esfuerzo1) {
-        this.esfuerzo1 = esfuerzo1;
-    }
-
-    public String getEncargado1() {
-        return encargado1;
-    }
-
-    public void setEncargado1(String encargado1) {
-        this.encargado1 = encargado1;
-    }
-
+    /**
+     *
+     * @return
+     */
     public LinkedList getAdjacencyList() {
         return adjacencyList;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-      
-    
-    
-
-    /**
-     * sets the LinkedList in case of change
-     * @param adjacencyList
+    /** sets the adjacency list of the task
+     * no return
+     * @param adjacencyList LinkedList
      */
     public void setAdjacencyList(LinkedList adjacencyList) {
         this.adjacencyList = adjacencyList;
     }
+
+    /** gets the tasktype of the task
+     *
+     * @return tasktype
+     */
+    public String getTasktype() {
+        return tasktype;
+    }
+
+    /** sets the TaskType of the task
+     *
+     * @param tasktype String
+     */
+    public void setTasktype(String tasktype) {
+        this.tasktype = tasktype;
+    }
+
+    /** gets the taskNumber of the task
+     *
+     * @return taskNumber int
+     */
+    public int getTaskNumber() {
+        return taskNumber;
+    }
+
+    /** sets the taskNumber of the task
+     * no return
+     * @param taskNumber int
+     */
+    public void setTaskNumber(int taskNumber) {
+        this.taskNumber = taskNumber;
+    }
+
+    /** gets the description of the task
+     *
+     * @return description String
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /** sets the description of the task
+     * no return 
+     * @param description String
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /** gets the ID of the task
+     *
+     * @return Id String
+     */
+    public String getId() {
+        return Id;
+    }
+
+    /** sets the ID of the task
+     * no return 
+     * @param Id String
+     */
+    public void setId(String Id) {
+        this.Id = Id;
+    }
+
+    /** gets the effort of the task
+     *
+     * @return effort String
+     */
+    public String getEffort() {
+        return effort;
+    }
+
+    /** Sets the effort of the task
+     * no return 
+     * @param effort String
+     */
+    public void setEffort(String effort) {
+        this.effort = effort;
+    }
+
+    /**gets the manager of the task
+     *
+     * @return manager String
+     */
+    public String getManager() {
+        return manager;
+    }
+
+    /** sets the manager of the task
+     * no return
+     * @param manager String
+     */
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
+
+    /** gets the duration of the task
+     *
+     * @return duration int
+     */
+    public int getDuration() {
+        return duration;
+    }
+
+    /** sets the actual duration of the task
+     * no return 
+     * @param duration
+     */
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    
     
 }

@@ -16,20 +16,65 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ *
+ * @author fioro
+ */
 public class Kruskal {
 
+    /**
+     *
+     */
     public static BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
  
-	public  int [][] G;
-	public int [][] t;
-	public boolean [][] in;
-	public boolean [][] temp;
+    /**
+     *
+     */
+    public  int [][] G;
+
+    /**
+     *
+     */
+    public int [][] t;
+
+    /**
+     *
+     */
+    public boolean [][] in;
+
+    /**
+     *
+     */
+    public boolean [][] temp;
  
 	static int n;
-	public static int mincost = 0;
-	public int k, l, num_ed=0;
+
+    /**
+     *
+     */
+    public static int mincost = 0;
+
+    /**
+     *
+     */
+    public int k,
+
+    /**
+     *
+     */
+    l,
+
+    /**
+     *
+     */
+    num_ed=0;
  
-	public Kruskal(int n) throws IOException
+    /**
+     *
+     * @param n
+     * @throws IOException
+     */
+    public Kruskal(int n) throws IOException
 	{
 		this.G = new int[n+1][n+1];
 		this.in = new boolean[n+1][n+1];
@@ -52,7 +97,10 @@ public class Kruskal {
 			}
 	}
  
-	public void Kruskals()
+    /**
+     *
+     */
+    public void Kruskals()
 	{
 		for (int i = 1; i<=n; i++)
 		{
@@ -85,7 +133,12 @@ public class Kruskal {
 		System.out.println("\nNo hay solucion");
 	}
  
-	public boolean allconnect(int i)
+    /**
+     *
+     * @param i
+     * @return
+     */
+    public boolean allconnect(int i)
 	{
 		for(int c=2;c<=n;c++)
 		{
@@ -100,7 +153,12 @@ public class Kruskal {
 		return true;
 	}
  
-	public boolean formscycle(int i)
+    /**
+     *
+     * @param i
+     * @return
+     */
+    public boolean formscycle(int i)
 	{
 		if(isPresent(i, k) && isPresent(i, l))
 		{
@@ -115,7 +173,14 @@ public class Kruskal {
 		return false;
 	}
  
-	public boolean can_reach(int k, int l, int i)
+    /**
+     *
+     * @param k
+     * @param l
+     * @param i
+     * @return
+     */
+    public boolean can_reach(int k, int l, int i)
 	{
 		temp[k][l] = temp[l][k] = true;
 		for(int o=1; o<=i; o++)
@@ -136,7 +201,13 @@ public class Kruskal {
 		return false;
 	}
  
-	public boolean isPresent(int i, int val)
+    /**
+     *
+     * @param i
+     * @param val
+     * @return
+     */
+    public boolean isPresent(int i, int val)
 	{
 		for(int o=1; o<=i; o++)
 			if((val == t[o][1]) || ((val == t[o][2]) ))
@@ -144,7 +215,10 @@ public class Kruskal {
 		return false;
 	}
  
-	public void getMinKL()
+    /**
+     *
+     */
+    public void getMinKL()
 	{
 		int k1 = 1, l1 = 1;
 		for(int i=1;i<=n;i++)

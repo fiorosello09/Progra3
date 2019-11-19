@@ -71,11 +71,7 @@ public class Edge<T>
         this.next = next;
     }
 
-    /** gets the LinkedList from the Node
-     *
-     * @return adjacencyList
-     */
-   
+    
     
 
 

@@ -11,10 +11,12 @@ package Data;
  */
 public class Resources
 {
+    //Atributes
+    
     String ID;
     String name;
     String type;
-    int capacity;
+    String capacity;
     int amount;
     String inCharge;
 
@@ -27,7 +29,7 @@ public class Resources
      * @param amount
      * @param inCharge
      */
-    public Resources(String ID, String name, String type, int capacity, int amount, String inCharge) {
+    public Resources(String ID, String name, String type, String capacity, int amount, String inCharge) {
         this.ID = ID;
         this.name = name;
         this.type = type;
@@ -45,7 +47,7 @@ public class Resources
     }
 
     /** set the ID of the object
-     *
+     * no return 
      * @param ID
      */
     public void setID(String ID) {
@@ -61,8 +63,8 @@ public class Resources
     }
 
     /** sets the name of the object
-     *
-     * @param name
+     * no return 
+     * @param name String
      */
     public void setName(String name) {
         this.name = name;
@@ -70,14 +72,14 @@ public class Resources
 
     /** gets the type of the object
      *
-     * @return
+     * @return type 
      */
     public String getType() {
         return type;
     }
 
     /** set type of the object
-     *
+     * no return 
      * @param type
      */
     public void setType(String type) {
@@ -86,31 +88,31 @@ public class Resources
 
     /** gets the capacity of the object
      *
-     * @return capacity
+     * @return capacity String
      */
-    public int getCapacity() {
+    public String getCapacity() {
         return capacity;
     }
 
     /** sets the capacity of the object
-     *
-     * @param capacity
+     * no return 
+     * @param capacity String
      */
-    public void setCapacity(int capacity) {
+    public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
 
-    /**
+    /** gets the amount available of the resource
      *
-     * @return amount
+     * @return amount int
      */
     public int getAmount() {
         return amount;
     }
 
     /** sets the amount of the object
-     *
-     * @param amount
+     * no return 
+     * @param amount int
      */
     public void setAmount(int amount) {
         this.amount = amount;
@@ -118,15 +120,15 @@ public class Resources
 
     /**
      * gets the person inCharge of the object
-     * @return inCharge
+     * @return inCharge String
      */
     public String getInCharge() {
         return inCharge;
     }
 
     /** sets the person in Charge of the object
-     *
-     * @param inCharge
+     * no return
+     * @param inCharge String
      */
     public void setInCharge(String inCharge) {
         this.inCharge = inCharge;
